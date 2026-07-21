@@ -910,7 +910,7 @@ function Contact() {
             value="github.com/Gowthami-shankar"
             href={GITHUB_URL}
           />
-          <ContactRow icon={MapPin} label="Location" value="Karnataka, India" />
+          <ContactRow icon={MapPin} label="Location" value="Udupi, Karnataka, India" />
         </div>
 
         <form
