@@ -33,11 +33,11 @@ export const Route = createFileRoute("/")({
         content:
           "Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python. Open to Software Developer roles.",
       },
-      { property: "og:title", content: "Gowthami — Full-Stack Developer" },
+      { property: "og:title", content: "Gowthami — Full-Stack Developer Portfolio" },
       {
         property: "og:description",
         content:
-          "Portfolio of Gowthami. Projects, internship experience, skills, and contact.",
+          "Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python. Open to Software Developer roles.",
       },
     ],
   }),
