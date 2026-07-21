@@ -227,18 +227,21 @@ function Hero() {
             Open to Software Development Opportunities
           </div>
 
-          <p className="mt-6 text-lg text-muted-foreground">Hi, I'm Gowthami 👋</p>
-          <h1 className="mt-3 font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">Full-Stack</span>
-            <br />
-            Developer
+          <p className="mt-6 text-sm uppercase tracking-[0.28em] text-muted-foreground">
+            Hi, I'm
+          </p>
+          <h1 className="mt-2 font-display text-6xl font-extrabold leading-[1.02] sm:text-7xl lg:text-[5.5rem]">
+            Gowthami<span className="text-gradient">.</span>
           </h1>
+          <p className="mt-4 font-display text-2xl font-semibold text-gradient sm:text-3xl">
+            Full-Stack Developer
+          </p>
 
-          <div className="mt-5 h-8 text-lg sm:text-xl">
-            <span className="text-muted-foreground">I'm a </span>
+          <div className="mt-5 h-8 text-base sm:text-lg">
+            <span className="text-muted-foreground">I build as a </span>
             <span
               key={i}
-              className="inline-block font-semibold text-gradient animate-[fade-in_0.5s_ease-out]"
+              className="inline-block font-semibold text-foreground/90 animate-[fade-in_0.5s_ease-out]"
             >
               {ROLES[i]}
             </span>
@@ -251,11 +254,18 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#projects" className="btn-primary hover:btn-primary-hover">
-              View My Projects <ArrowRight className="h-4 w-4" />
+            <a href="#projects" className="group btn-primary hover:btn-primary-hover">
+              View My Projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href={RESUME_URL} download className="btn-ghost hover:bg-white/10">
-              <Download className="h-4 w-4" /> Download Resume
+            <a
+              href={RESUME_URL}
+              download
+              className="group btn-ghost hover:bg-white/10 hover:border-white/25"
+              aria-label="Download Resume PDF"
+            >
+              <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              Download Resume
             </a>
           </div>
 
@@ -271,6 +281,7 @@ function Hero() {
             </SocialIcon>
           </div>
         </div>
+
 
         <div className="reveal">
           <CodeWindow />
