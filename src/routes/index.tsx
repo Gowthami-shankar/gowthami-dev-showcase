@@ -555,16 +555,6 @@ function Skills() {
 }
 
 /* ---------------- Projects ---------------- */
-type Project = {
-  title: string;
-  description: string;
-  stack: string[];
-  features: string[];
-  github: string;
-  live?: string;
-  visual: "analytics" | "commerce" | "parking";
-  note?: string;
-};
 
 type Project = {
   title: string;
