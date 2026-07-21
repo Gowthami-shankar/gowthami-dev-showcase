@@ -580,6 +580,7 @@ const PROJECTS: Project[] = [
       "Interactive analytics and historical tracking",
       "Personalized study recommendations and CSV export",
     ],
+    github: "https://github.com/Gowthami-shankar/student-performance-prediction",
   },
   {
     title: "Sweet Shop Management System",
@@ -594,6 +595,7 @@ const PROJECTS: Project[] = [
       "Responsive React interface with search and filtering",
     ],
     note: "Built with TDD using Jest and Supertest.",
+    github: "https://github.com/Gowthami-shankar/Sweet-Shop",
   },
   {
     title: "Hospital Parking Management System",
@@ -607,6 +609,7 @@ const PROJECTS: Project[] = [
       "Search and report generation",
       "Parking category and organized data management",
     ],
+    github: "https://github.com/Gowthami-shankar/Hospital-Parking-Management-System",
   },
 ];
 
