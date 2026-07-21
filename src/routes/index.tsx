@@ -156,7 +156,7 @@ function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <a href={RESUME_URL} download className="btn-primary hover:btn-primary-hover text-sm">
+          <a href={RESUME_URL} download="Gowthami-Resume.pdf" className="btn-primary hover:btn-primary-hover text-sm">
             <Download className="h-4 w-4" /> Resume
           </a>
         </div>
@@ -191,7 +191,7 @@ function Navbar() {
             <li className="pt-2">
               <a
                 href={RESUME_URL}
-                download
+                download="Gowthami-Resume.pdf"
                 onClick={() => setOpen(false)}
                 className="btn-primary hover:btn-primary-hover w-full text-sm"
               >
@@ -260,7 +260,7 @@ function Hero() {
             </a>
             <a
               href={RESUME_URL}
-              download
+              download="Gowthami-Resume.pdf"
               className="group btn-ghost hover:bg-white/10 hover:border-white/25"
               aria-label="Download Resume PDF"
             >
