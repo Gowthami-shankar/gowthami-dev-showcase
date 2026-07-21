@@ -10,7 +10,6 @@ import {
   ArrowUp,
   Menu,
   X,
-  ExternalLink,
   Code2,
   Database,
   Server,
@@ -22,23 +21,29 @@ import {
   Briefcase,
   Send,
   Sparkles,
+  BrainCircuit,
+  ShoppingBag,
+  ParkingCircle,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gowthami — Full-Stack Developer Portfolio" },
+      { title: "Gowthami | Full-Stack Developer" },
       {
         name: "description",
         content:
-          "Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python. Open to Software Developer roles.",
+          "Portfolio of Gowthami — MCA student and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Available for Software Developer, Full-Stack Developer, and Frontend Developer roles.",
       },
-      { property: "og:title", content: "Gowthami — Full-Stack Developer Portfolio" },
+      { property: "og:title", content: "Gowthami | Full-Stack Developer" },
       {
         property: "og:description",
         content:
-          "Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python. Open to Software Developer roles.",
+          "Portfolio of Gowthami — MCA student and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Portfolio,
@@ -222,18 +227,21 @@ function Hero() {
             Open to Software Development Opportunities
           </div>
 
-          <p className="mt-6 text-lg text-muted-foreground">Hi, I'm Gowthami 👋</p>
-          <h1 className="mt-3 font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">Full-Stack</span>
-            <br />
-            Developer
+          <p className="mt-6 text-sm uppercase tracking-[0.28em] text-muted-foreground">
+            Hi, I'm
+          </p>
+          <h1 className="mt-2 font-display text-6xl font-extrabold leading-[1.02] sm:text-7xl lg:text-[5.5rem]">
+            Gowthami<span className="text-gradient">.</span>
           </h1>
+          <p className="mt-4 font-display text-2xl font-semibold text-gradient sm:text-3xl">
+            Full-Stack Developer
+          </p>
 
-          <div className="mt-5 h-8 text-lg sm:text-xl">
-            <span className="text-muted-foreground">I'm a </span>
+          <div className="mt-5 h-8 text-base sm:text-lg">
+            <span className="text-muted-foreground">I build as a </span>
             <span
               key={i}
-              className="inline-block font-semibold text-gradient animate-[fade-in_0.5s_ease-out]"
+              className="inline-block font-semibold text-foreground/90 animate-[fade-in_0.5s_ease-out]"
             >
               {ROLES[i]}
             </span>
@@ -246,11 +254,18 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#projects" className="btn-primary hover:btn-primary-hover">
-              View My Projects <ArrowRight className="h-4 w-4" />
+            <a href="#projects" className="group btn-primary hover:btn-primary-hover">
+              View My Projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href={RESUME_URL} download className="btn-ghost hover:bg-white/10">
-              <Download className="h-4 w-4" /> Download Resume
+            <a
+              href={RESUME_URL}
+              download
+              className="group btn-ghost hover:bg-white/10 hover:border-white/25"
+              aria-label="Download Resume PDF"
+            >
+              <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              Download Resume
             </a>
           </div>
 
@@ -266,6 +281,7 @@ function Hero() {
             </SocialIcon>
           </div>
         </div>
+
 
         <div className="reveal">
           <CodeWindow />
@@ -539,57 +555,58 @@ function Skills() {
 }
 
 /* ---------------- Projects ---------------- */
+
 type Project = {
   title: string;
+  category: string;
+  icon: React.ComponentType<{ className?: string }>;
   description: string;
   stack: string[];
   features: string[];
-  github: string;
-  live?: string;
-  visual: "analytics" | "commerce" | "parking";
+  github?: string;
   note?: string;
 };
 
 const PROJECTS: Project[] = [
   {
     title: "Student Performance Prediction System",
+    category: "AI · Analytics",
+    icon: BrainCircuit,
     description:
       "An AI-powered web application that predicts students' final examination performance using academic factors and provides interactive analytics and personalized insights.",
     stack: ["Python", "Flask", "Scikit-learn", "SQLite"],
     features: [
-      "ML-based score prediction using study hours, attendance, previous scores, and assignment completion.",
-      "Interactive analytics dashboard with prediction trends, distributions, and historical tracking.",
-      "Performance categorization, personalized recommendations, filtering, and CSV export.",
+      "Machine-learning-based performance prediction",
+      "Interactive analytics and historical tracking",
+      "Personalized study recommendations and CSV export",
     ],
-    github: GITHUB_URL,
-    visual: "analytics",
   },
   {
     title: "Sweet Shop Management System",
+    category: "Full-Stack · MERN",
+    icon: ShoppingBag,
     description:
-      "A full-stack management platform for handling inventory, sales, authentication, and stock operations efficiently.",
+      "A full-stack management platform for handling inventory, sales, authentication, and stock operations.",
     stack: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "Jest"],
     features: [
-      "Secure authentication and role-based access control using JWT.",
-      "RESTful APIs for inventory CRUD, sales processing, and stock management.",
-      "Responsive React interface with search, filtering, and real-time inventory updates.",
+      "JWT authentication and role-based access",
+      "RESTful inventory and sales APIs",
+      "Responsive React interface with search and filtering",
     ],
-    github: GITHUB_URL,
-    visual: "commerce",
-    note: "Built following Test-Driven Development with Jest and Supertest.",
+    note: "Built with TDD using Jest and Supertest.",
   },
   {
     title: "Hospital Parking Management System",
+    category: "Full-Stack · PHP",
+    icon: ParkingCircle,
     description:
-      "A full-stack web application designed to automate and simplify hospital parking management operations.",
+      "A full-stack application designed to automate and simplify hospital parking management operations.",
     stack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     features: [
-      "Vehicle entry and parking record management.",
-      "Search and report generation.",
-      "Parking category management and organized data handling.",
+      "Vehicle entry and parking record management",
+      "Search and report generation",
+      "Parking category and organized data management",
     ],
-    github: GITHUB_URL,
-    visual: "parking",
   },
 ];
 
@@ -599,7 +616,7 @@ function Projects() {
       id="projects"
       eyebrow="Work"
       title="Featured Projects"
-      subtitle="Some of the projects I've built while learning and solving real-world problems."
+      subtitle="A selection of full-stack and applied-ML projects I've built while learning and solving real-world problems."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {PROJECTS.map((p) => (
@@ -611,9 +628,10 @@ function Projects() {
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-ghost hover:bg-white/10"
+          className="group btn-ghost hover:bg-white/10 hover:border-white/25"
         >
-          Explore More on GitHub <ArrowRight className="h-4 w-4" />
+          Explore More on GitHub
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </a>
       </div>
     </Section>
@@ -621,12 +639,28 @@ function Projects() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const Icon = project.icon;
+  const hasGithub = Boolean(project.github);
   return (
-    <article className="reveal group glass-strong rounded-2xl overflow-hidden flex flex-col transition-all hover:-translate-y-1 hover:glow-primary">
-      <ProjectVisual variant={project.visual} />
-      <div className="p-6 flex flex-col grow">
-        <h3 className="font-display text-xl font-bold">{project.title}</h3>
-        <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
+    <article className="reveal group relative glass-strong rounded-2xl overflow-hidden flex flex-col p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:glow-primary hover:border-white/15">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-20 -right-20 h-52 w-52 rounded-full bg-gradient-to-br from-[oklch(0.72_0.18_255/0.25)] to-[oklch(0.68_0.20_300/0.20)] blur-3xl opacity-60 transition-opacity duration-500 group-hover:opacity-100"
+      />
+      <div className="relative flex items-start justify-between gap-4">
+        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[oklch(0.78_0.17_255/0.25)] to-[oklch(0.68_0.20_300/0.25)] text-[oklch(0.85_0.14_255)] ring-1 ring-white/10">
+          <Icon className="h-6 w-6" />
+        </div>
+        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          {project.category}
+        </span>
+      </div>
+
+      <div className="relative mt-5 flex flex-col grow">
+        <h3 className="font-display text-xl font-bold sm:text-[1.35rem]">{project.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
 
         <div className="mt-4 flex flex-wrap gap-2">
           {project.stack.map((s) => (
@@ -647,24 +681,25 @@ function ProjectCard({ project }: { project: Project }) {
           <p className="mt-4 text-xs italic text-muted-foreground/80">{project.note}</p>
         )}
 
-        <div className="mt-6 flex flex-wrap gap-3 pt-4 border-t border-white/5">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-ghost hover:bg-white/10 !py-2 !px-4 text-sm"
-          >
-            <Github className="h-4 w-4" /> GitHub
-          </a>
-          {project.live && (
+        <div className="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-white/5">
+          {hasGithub ? (
             <a
-              href={project.live}
+              href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary hover:btn-primary-hover !py-2 !px-4 text-sm"
+              className="group/btn btn-ghost hover:bg-white/10 hover:border-white/25 !py-2 !px-4 text-sm"
+              aria-label={`Open ${project.title} on GitHub`}
             >
-              <ExternalLink className="h-4 w-4" /> Live Demo
+              <Github className="h-4 w-4" /> GitHub
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
             </a>
+          ) : (
+            <span
+              className="inline-flex items-center gap-2 rounded-full border border-dashed border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-muted-foreground"
+              title="Repository link coming soon"
+            >
+              <Github className="h-4 w-4" /> Repository link coming soon
+            </span>
           )}
         </div>
       </div>
@@ -672,82 +707,6 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-function ProjectVisual({ variant }: { variant: Project["visual"] }) {
-  if (variant === "analytics") {
-    return (
-      <div className="relative h-44 overflow-hidden border-b border-white/5 bg-gradient-to-br from-[oklch(0.24_0.05_265)] to-[oklch(0.18_0.04_275)]">
-        <div className="absolute inset-0 grid-bg opacity-40" />
-        <svg viewBox="0 0 400 160" className="relative h-full w-full">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="oklch(0.78 0.17 255)" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="oklch(0.78 0.17 255)" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 120 L50 90 L100 100 L150 60 L200 75 L250 40 L300 55 L350 25 L400 45 L400 160 L0 160 Z"
-            fill="url(#g1)"
-          />
-          <path
-            d="M0 120 L50 90 L100 100 L150 60 L200 75 L250 40 L300 55 L350 25 L400 45"
-            fill="none"
-            stroke="oklch(0.85 0.14 255)"
-            strokeWidth="2"
-          />
-          {[50, 100, 150, 200, 250, 300, 350].map((x, i) => (
-            <circle
-              key={x}
-              cx={x}
-              cy={[90, 100, 60, 75, 40, 55, 25][i]}
-              r="3"
-              fill="oklch(0.85 0.14 255)"
-            />
-          ))}
-        </svg>
-      </div>
-    );
-  }
-  if (variant === "commerce") {
-    return (
-      <div className="relative h-44 overflow-hidden border-b border-white/5 bg-gradient-to-br from-[oklch(0.22_0.06_290)] to-[oklch(0.18_0.04_270)]">
-        <div className="absolute inset-0 grid-bg opacity-40" />
-        <div className="relative grid h-full grid-cols-3 gap-3 p-5">
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="rounded-lg border border-white/10 bg-white/5"
-              style={{ opacity: 1 - i * 0.1 }}
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="relative h-44 overflow-hidden border-b border-white/5 bg-gradient-to-br from-[oklch(0.20_0.05_265)] to-[oklch(0.18_0.04_290)]">
-      <div className="absolute inset-0 grid-bg opacity-40" />
-      <svg viewBox="0 0 400 160" className="relative h-full w-full">
-        {[0, 1, 2].map((r) =>
-          [0, 1, 2, 3, 4].map((c) => (
-            <rect
-              key={`${r}-${c}`}
-              x={30 + c * 70}
-              y={20 + r * 40}
-              width={55}
-              height={26}
-              rx={4}
-              fill="oklch(1 0 0 / 0.05)"
-              stroke="oklch(0.78 0.15 260 / 0.5)"
-              strokeWidth="1"
-            />
-          )),
-        )}
-        <rect x={100} y={60} width={55} height={26} rx={4} fill="oklch(0.78 0.17 255 / 0.35)" />
-        <rect x={240} y={100} width={55} height={26} rx={4} fill="oklch(0.68 0.20 300 / 0.35)" />
-      </svg>
-    </div>
-  );
-}
 
 /* ---------------- Education ---------------- */
 function Education() {
