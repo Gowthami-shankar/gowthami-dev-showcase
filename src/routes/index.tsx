@@ -10,7 +10,6 @@ import {
   ArrowUp,
   Menu,
   X,
-  ExternalLink,
   Code2,
   Database,
   Server,
@@ -22,7 +21,11 @@ import {
   Briefcase,
   Send,
   Sparkles,
+  BrainCircuit,
+  ShoppingBag,
+  ParkingCircle,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
