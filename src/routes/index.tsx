@@ -30,18 +30,20 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gowthami — Full-Stack Developer Portfolio" },
+      { title: "Gowthami | Full-Stack Developer" },
       {
         name: "description",
         content:
-          "Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python. Open to Software Developer roles.",
+          "Portfolio of Gowthami — MCA student and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Available for Software Developer, Full-Stack Developer, and Frontend Developer roles.",
       },
-      { property: "og:title", content: "Gowthami — Full-Stack Developer Portfolio" },
+      { property: "og:title", content: "Gowthami | Full-Stack Developer" },
       {
         property: "og:description",
         content:
-          "Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python. Open to Software Developer roles.",
+          "Portfolio of Gowthami — MCA student and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Portfolio,
