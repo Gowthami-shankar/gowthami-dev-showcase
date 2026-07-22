@@ -831,24 +831,78 @@ function Certifications() {
 }
 
 /* ---------------- Contact ---------------- */
-function Contact() {
-  const [status, setStatus] = useState<null | "sent" | "error">(null);
-  const formRef = useRef<HTMLFormElement>(null);
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqvlvzo";
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget as HTMLFormElement);
-    const name = String(fd.get("name") ?? "");
-    const email = String(fd.get("email") ?? "");
-    const subject = String(fd.get("subject") ?? "");
-    const message = String(fd.get("message") ?? "");
-    // No backend configured — open user's mail client with a prefilled draft.
-    const body = encodeURIComponent(`Hi Gowthami,\n\n${message}\n\n— ${name} (${email})`);
-    const s = encodeURIComponent(subject || "Portfolio contact");
-    window.location.href = `mailto:${EMAIL}?subject=${s}&body=${body}`;
-    setStatus("sent");
-    formRef.current?.reset();
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
+function Contact() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = (fd: FormData) => {
+    const next: Record<string, string> = {};
+    const name = String(fd.get("name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const subject = String(fd.get("subject") ?? "").trim();
+    const message = String(fd.get("message") ?? "").trim();
+
+    if (!name) next.name = "Name is required";
+    if (!email) next.email = "Email is required";
+    else if (!EMAIL_REGEX.test(email)) next.email = "Please enter a valid email";
+    if (!subject) next.subject = "Subject is required";
+    if (!message) next.message = "Message is required";
+
+    return next;
   };
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === "sending") return;
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const validationErrors = validate(fd);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setStatus("error");
+      return;
+    }
+
+    setErrors({});
+    setStatus("sending");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: fd,
+      });
+
+      if (response.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const statusMessage =
+    status === "sending"
+      ? "Sending your message…"
+      : status === "sent"
+        ? "Message sent successfully! I'll get back to you soon."
+        : status === "error"
+          ? Object.keys(errors).length > 0
+            ? "Please fix the highlighted fields and try again."
+            : "Unable to send your message. Please try again."
+          : null;
 
   return (
     <Section
@@ -876,36 +930,62 @@ function Contact() {
         </div>
 
         <form
-          ref={formRef}
           onSubmit={onSubmit}
           className="reveal glass-strong rounded-2xl p-6 sm:p-8 space-y-4"
         >
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field name="name" label="Name" placeholder="Your name" required />
+            <Field
+              name="name"
+              label="Name"
+              placeholder="Your name"
+              required
+              error={errors.name}
+            />
             <Field
               name="email"
               type="email"
               label="Email"
               placeholder="you@example.com"
               required
+              error={errors.email}
             />
           </div>
-          <Field name="subject" label="Subject" placeholder="What's this about?" required />
+          <Field
+            name="subject"
+            label="Subject"
+            placeholder="What's this about?"
+            required
+            error={errors.subject}
+          />
           <Field
             name="message"
             label="Message"
             placeholder="Tell me a little about the opportunity…"
             required
             textarea
+            error={errors.message}
           />
-          <button type="submit" className="btn-primary hover:btn-primary-hover w-full sm:w-auto">
-            <Send className="h-4 w-4" /> Send Message
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="btn-primary hover:btn-primary-hover w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <Send className="h-4 w-4" />
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
-          <p className="text-xs text-muted-foreground">
-            {status === "sent"
-              ? "Opening your email client — thanks for reaching out!"
-              : "This form opens your email client. A backend service can be plugged in later."}
-          </p>
+          {statusMessage && (
+            <p
+              className={`text-xs ${
+                status === "sent"
+                  ? "text-emerald-400"
+                  : status === "error"
+                    ? "text-red-400"
+                    : "text-muted-foreground"
+              }`}
+            >
+              {statusMessage}
+            </p>
+          )}
         </form>
       </div>
     </Section>
@@ -950,6 +1030,7 @@ function Field({
   type = "text",
   required,
   textarea,
+  error,
 }: {
   name: string;
   label: string;
@@ -957,9 +1038,13 @@ function Field({
   type?: string;
   required?: boolean;
   textarea?: boolean;
+  error?: string;
 }) {
   const cls =
-    "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-[oklch(0.78_0.17_255/0.6)] focus:ring-2 focus:ring-[oklch(0.78_0.17_255/0.25)] transition";
+    "w-full rounded-xl border bg-white/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 transition" +
+    (error
+      ? " border-red-400/60 focus:border-red-400 focus:ring-red-400/25"
+      : " border-white/10 focus:border-[oklch(0.78_0.17_255/0.6)] focus:ring-[oklch(0.78_0.17_255/0.25)]");
   return (
     <label className="block">
       <span className="mb-1.5 block text-xs font-medium text-muted-foreground">{label}</span>
@@ -968,6 +1053,7 @@ function Field({
       ) : (
         <input name={name} type={type} placeholder={placeholder} required={required} className={cls} />
       )}
+      {error && <span className="mt-1.5 block text-xs text-red-400">{error}</span>}
     </label>
   );
 }
