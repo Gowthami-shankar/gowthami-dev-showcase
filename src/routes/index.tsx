@@ -931,6 +931,7 @@ function Contact() {
 
         <form
           onSubmit={onSubmit}
+          noValidate
           className="reveal glass-strong rounded-2xl p-6 sm:p-8 space-y-4"
         >
           <div className="grid gap-4 sm:grid-cols-2">
