@@ -230,10 +230,10 @@ function Hero() {
           <p className="mt-6 text-sm uppercase tracking-[0.28em] text-muted-foreground">
             Hi, I'm
           </p>
-          <h1 className="mt-2 font-display text-6xl font-extrabold leading-[1.02] sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-2 font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl md:text-7xl lg:text-[5.5rem]">
             Gowthami<span className="text-gradient">.</span>
           </h1>
-          <p className="mt-4 font-display text-2xl font-semibold text-gradient sm:text-3xl">
+          <p className="mt-3 font-display text-xl font-semibold text-gradient sm:text-2xl md:text-3xl">
             Full-Stack Developer
           </p>
 
