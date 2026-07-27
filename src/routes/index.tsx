@@ -326,7 +326,7 @@ function CodeWindow() {
             gowthami.dev — developer.ts
           </span>
         </div>
-        <pre className="font-mono text-[13px] leading-relaxed p-5 overflow-x-auto">
+        <pre className="font-mono text-[11px] leading-relaxed p-4 overflow-x-auto sm:text-[13px] sm:p-5">
 {`const gowthami = {
   role: "Full-Stack Developer",
   education: "MCA @ Manipal Institute of Technology",
