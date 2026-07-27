@@ -133,7 +133,7 @@ function Navbar() {
         scrolled ? "backdrop-blur-xl bg-background/60 border-b border-white/5" : ""
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 md:px-8">
         <a href="#home" className="font-display text-lg font-bold tracking-tight">
           Gowthami<span className="text-gradient">.</span>
         </a>
