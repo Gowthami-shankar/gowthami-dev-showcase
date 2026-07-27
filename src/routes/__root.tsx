@@ -81,19 +81,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Portfolio of Gowthami — MCA student and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Available for Software Developer, Full-Stack Developer, and Frontend Developer roles.",
+          "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Actively seeking Software Developer and Full-Stack Developer opportunities.",
       },
       { name: "author", content: "Gowthami" },
       { property: "og:title", content: "Gowthami | Full-Stack Developer" },
       {
         property: "og:description",
         content:
-          "Portfolio of Gowthami — MCA student and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python.",
+          "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python. Actively seeking Software Developer and Full-Stack Developer opportunities.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Gowthami | Full-Stack Developer" },
-      { name: "twitter:description", content: "Portfolio of Gowthami — MCA student and Full-Stack Developer. React, Node.js, Laravel, Python." },
+      { name: "twitter:description", content: "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer. React, Node.js, Laravel, Python. Actively seeking Software Developer and Full-Stack Developer opportunities." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/57d5fe94-4927-4f89-9fe5-e3df1f93b4f0/id-preview-6a994390--c2a3bd5d-5f76-4212-b31d-f7b3a3e07979.lovable.app-1784648562000.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/57d5fe94-4927-4f89-9fe5-e3df1f93b4f0/id-preview-6a994390--c2a3bd5d-5f76-4212-b31d-f7b3a3e07979.lovable.app-1784648562000.png" },
     ],
