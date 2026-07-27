@@ -34,13 +34,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Gowthami — MCA student and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Available for Software Developer, Full-Stack Developer, and Frontend Developer roles.",
+          "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Actively seeking Software Developer and Full-Stack Developer opportunities.",
       },
       { property: "og:title", content: "Gowthami | Full-Stack Developer" },
       {
         property: "og:description",
         content:
-          "Portfolio of Gowthami — MCA student and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python.",
+          "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python. Actively seeking Software Developer and Full-Stack Developer opportunities.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -248,9 +248,10 @@ function Hero() {
           </div>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Motivated MCA student and Full-Stack Developer passionate about building
-            scalable web applications, solving real-world problems, and creating
-            meaningful digital experiences.
+            MCA Graduate and Full-Stack Developer passionate about building scalable
+            web applications, solving real-world problems, and creating modern
+            digital experiences. Actively seeking Full-Stack Developer and Software
+            Developer opportunities.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -384,7 +385,7 @@ function Section({
 /* ---------------- About ---------------- */
 function About() {
   const highlights = [
-    { top: "MCA", bottom: "Manipal Institute of Technology", icon: GraduationCap },
+    { top: "MCA Graduate", bottom: "Manipal Institute of Technology", icon: GraduationCap },
     { top: "8.26", bottom: "MCA CGPA", icon: Award },
     { top: "Full-Stack", bottom: "Development Focus", icon: Layers },
     { top: "Open to Work", bottom: "Software Development Roles", icon: Briefcase },
@@ -394,21 +395,20 @@ function About() {
       <div className="grid gap-8 md:gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            I'm a Full-Stack Developer currently completing my Master of Computer
-            Applications at{" "}
+            I'm an MCA Graduate from{" "}
             <span className="text-foreground font-medium">
               Manipal Institute of Technology, Manipal
             </span>
-            . I enjoy developing practical software solutions using modern web
-            technologies and have hands-on experience across frontend, backend,
-            databases, and machine learning applications.
+            , passionate about designing and developing modern full-stack web
+            applications. I enjoy transforming ideas into practical software
+            solutions using modern web technologies.
           </p>
           <p>
-            Through my internship and projects, I've worked on real-world systems
-            involving REST APIs, authentication, database-driven applications,
-            analytics dashboards, and responsive user interfaces. I'm passionate
-            about continuously learning and applying technology to solve
-            meaningful problems.
+            Through my internship and academic projects, I have gained hands-on
+            experience in developing full-stack applications involving REST APIs,
+            authentication, database-driven systems, analytics dashboards, and
+            responsive user interfaces. I enjoy continuously learning new
+            technologies and applying them to build reliable and scalable software.
           </p>
         </div>
         <div className="reveal grid grid-cols-2 gap-4">
