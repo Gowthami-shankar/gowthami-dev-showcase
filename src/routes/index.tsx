@@ -368,7 +368,7 @@ function Section({
               <Sparkles className="h-3.5 w-3.5" /> {eyebrow}
             </div>
           )}
-          <h2 className="font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
             {title}
           </h2>
           {subtitle && (
