@@ -391,7 +391,7 @@ function About() {
   ];
   return (
     <Section id="about" eyebrow="About" title="About Me">
-      <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div className="grid gap-8 md:gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             I'm a Full-Stack Developer currently completing my Master of Computer
