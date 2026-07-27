@@ -621,7 +621,7 @@ function Projects() {
       title="Featured Projects"
       subtitle="A selection of full-stack and applied-ML projects I've built while learning and solving real-world problems."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
         {PROJECTS.map((p) => (
           <ProjectCard key={p.title} project={p} />
         ))}
