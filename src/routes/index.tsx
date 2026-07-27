@@ -360,9 +360,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="relative py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="reveal mb-12 max-w-2xl">
+    <section id={id} className="relative py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="reveal mb-10 max-w-2xl sm:mb-12">
           {eyebrow && (
             <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[oklch(0.78_0.15_260)]">
               <Sparkles className="h-3.5 w-3.5" /> {eyebrow}
