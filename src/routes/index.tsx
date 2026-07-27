@@ -133,7 +133,7 @@ function Navbar() {
         scrolled ? "backdrop-blur-xl bg-background/60 border-b border-white/5" : ""
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 md:px-8">
         <a href="#home" className="font-display text-lg font-bold tracking-tight">
           Gowthami<span className="text-gradient">.</span>
         </a>
@@ -216,8 +216,8 @@ function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative pt-32 pb-24 sm:pt-40 sm:pb-32">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:items-center">
+    <section id="home" className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-32">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:gap-12 md:px-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-14">
         <div className="reveal">
           <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-medium">
             <span className="relative flex h-2 w-2">
@@ -230,10 +230,10 @@ function Hero() {
           <p className="mt-6 text-sm uppercase tracking-[0.28em] text-muted-foreground">
             Hi, I'm
           </p>
-          <h1 className="mt-2 font-display text-6xl font-extrabold leading-[1.02] sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-2 font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl md:text-7xl lg:text-[5.5rem]">
             Gowthami<span className="text-gradient">.</span>
           </h1>
-          <p className="mt-4 font-display text-2xl font-semibold text-gradient sm:text-3xl">
+          <p className="mt-3 font-display text-xl font-semibold text-gradient sm:text-2xl md:text-3xl">
             Full-Stack Developer
           </p>
 
@@ -326,7 +326,7 @@ function CodeWindow() {
             gowthami.dev — developer.ts
           </span>
         </div>
-        <pre className="font-mono text-[13px] leading-relaxed p-5 overflow-x-auto">
+        <pre className="font-mono text-[11px] leading-relaxed p-4 overflow-x-auto sm:text-[13px] sm:p-5">
 {`const gowthami = {
   role: "Full-Stack Developer",
   education: "MCA @ Manipal Institute of Technology",
@@ -360,15 +360,15 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="relative py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="reveal mb-12 max-w-2xl">
+    <section id={id} className="relative py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="reveal mb-10 max-w-2xl sm:mb-12">
           {eyebrow && (
             <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[oklch(0.78_0.15_260)]">
               <Sparkles className="h-3.5 w-3.5" /> {eyebrow}
             </div>
           )}
-          <h2 className="font-display text-3xl font-bold sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
             {title}
           </h2>
           {subtitle && (
@@ -391,7 +391,7 @@ function About() {
   ];
   return (
     <Section id="about" eyebrow="About" title="About Me">
-      <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div className="grid gap-8 md:gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             I'm a Full-Stack Developer currently completing my Master of Computer
@@ -621,7 +621,7 @@ function Projects() {
       title="Featured Projects"
       subtitle="A selection of full-stack and applied-ML projects I've built while learning and solving real-world problems."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
         {PROJECTS.map((p) => (
           <ProjectCard key={p.title} project={p} />
         ))}
