@@ -216,8 +216,8 @@ function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative pt-32 pb-24 sm:pt-40 sm:pb-32">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:items-center">
+    <section id="home" className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-32">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:gap-12 md:px-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-14">
         <div className="reveal">
           <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-medium">
             <span className="relative flex h-2 w-2">
