@@ -48,7 +48,18 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: portraitSm.url,
+        imageSrcSet: `${portraitSm.url} 208w, ${portraitLg.url} 416w`,
+        imageSizes: "(min-width: 640px) 208px, 176px",
+        fetchpriority: "high",
+      },
+    ],
   }),
+
   component: Portfolio,
 });
 
