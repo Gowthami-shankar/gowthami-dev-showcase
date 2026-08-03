@@ -25,6 +25,8 @@ import {
   ShoppingBag,
   ParkingCircle,
 } from "lucide-react";
+import portrait from "@/assets/gowthami.jpg.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
@@ -515,9 +517,22 @@ function Skills() {
     {
       icon: Server,
       title: "Backend",
-      items: ["Node.js", "Express.js", "PHP", "Laravel"],
+      items: ["Node.js", "Express.js", "PHP Laravel", "Flask"],
     },
-    { icon: Database, title: "Databases", items: ["MySQL", "MongoDB"] },
+    { icon: Database, title: "Databases", items: ["MySQL", "MongoDB", "SQLite"] },
+    {
+      icon: BrainCircuit,
+      title: "Data Analysis & Machine Learning",
+      items: [
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Data Preprocessing",
+        "Data Visualization",
+        "Regression Analysis",
+        "Model Evaluation",
+      ],
+    },
     {
       icon: Cpu,
       title: "Core Concepts",
@@ -532,10 +547,11 @@ function Skills() {
     },
     {
       icon: Wrench,
-      title: "Tools & Platforms",
-      items: ["Git", "GitHub", "VS Code", "Jest"],
+      title: "Tools & Testing",
+      items: ["Git", "GitHub", "VS Code", "Jest", "Supertest"],
     },
   ];
+
   return (
     <Section
       id="skills"
