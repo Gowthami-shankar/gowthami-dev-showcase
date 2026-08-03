@@ -284,9 +284,22 @@ function Hero() {
         </div>
 
 
-        <div className="reveal">
+        <div className="reveal space-y-6">
+          <div className="relative mx-auto w-fit">
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-[oklch(0.72_0.18_255/0.45)] to-[oklch(0.68_0.20_300/0.40)] blur-2xl opacity-70" />
+            <div className="relative h-44 w-44 overflow-hidden rounded-full border border-white/15 shadow-2xl sm:h-52 sm:w-52">
+              <img
+                src={portrait.url}
+                alt="Portrait of Gowthami, MCA Graduate and Full-Stack Developer"
+                width={416}
+                height={531}
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+          </div>
           <CodeWindow />
         </div>
+
       </div>
     </section>
   );
