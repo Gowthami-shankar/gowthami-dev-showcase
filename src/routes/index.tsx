@@ -25,7 +25,8 @@ import {
   ShoppingBag,
   ParkingCircle,
 } from "lucide-react";
-import portrait from "@/assets/gowthami.jpg.asset.json";
+import portraitSm from "@/assets/gowthami-208.webp.asset.json";
+import portraitLg from "@/assets/gowthami-416.webp.asset.json";
 
 
 
@@ -291,12 +292,18 @@ function Hero() {
             <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-[oklch(0.72_0.18_255/0.45)] to-[oklch(0.68_0.20_300/0.40)] blur-2xl opacity-70" />
             <div className="relative h-44 w-44 overflow-hidden rounded-full border border-white/15 shadow-2xl sm:h-52 sm:w-52">
               <img
-                src={portrait.url}
-                alt="Portrait of Gowthami, MCA Graduate and Full-Stack Developer"
-                width={416}
-                height={531}
+                src={portraitSm.url}
+                srcSet={`${portraitSm.url} 208w, ${portraitLg.url} 416w`}
+                sizes="(min-width: 640px) 208px, 176px"
+                alt="Gowthami, MCA Graduate and Full-Stack Developer, in a dark blazer and white shirt"
+                width={208}
+                height={267}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="h-full w-full object-cover object-top"
               />
+
             </div>
           </div>
           <CodeWindow />
