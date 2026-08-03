@@ -25,6 +25,8 @@ import {
   ShoppingBag,
   ParkingCircle,
 } from "lucide-react";
+import portrait from "@/assets/gowthami.jpg.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
@@ -284,9 +286,22 @@ function Hero() {
         </div>
 
 
-        <div className="reveal">
+        <div className="reveal space-y-6">
+          <div className="relative mx-auto w-fit">
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-[oklch(0.72_0.18_255/0.45)] to-[oklch(0.68_0.20_300/0.40)] blur-2xl opacity-70" />
+            <div className="relative h-44 w-44 overflow-hidden rounded-full border border-white/15 shadow-2xl sm:h-52 sm:w-52">
+              <img
+                src={portrait.url}
+                alt="Portrait of Gowthami, MCA Graduate and Full-Stack Developer"
+                width={416}
+                height={531}
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+          </div>
           <CodeWindow />
         </div>
+
       </div>
     </section>
   );
@@ -502,9 +517,22 @@ function Skills() {
     {
       icon: Server,
       title: "Backend",
-      items: ["Node.js", "Express.js", "PHP", "Laravel"],
+      items: ["Node.js", "Express.js", "PHP Laravel", "Flask"],
     },
-    { icon: Database, title: "Databases", items: ["MySQL", "MongoDB"] },
+    { icon: Database, title: "Databases", items: ["MySQL", "MongoDB", "SQLite"] },
+    {
+      icon: BrainCircuit,
+      title: "Data Analysis & Machine Learning",
+      items: [
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Data Preprocessing",
+        "Data Visualization",
+        "Regression Analysis",
+        "Model Evaluation",
+      ],
+    },
     {
       icon: Cpu,
       title: "Core Concepts",
@@ -519,10 +547,11 @@ function Skills() {
     },
     {
       icon: Wrench,
-      title: "Tools & Platforms",
-      items: ["Git", "GitHub", "VS Code", "Jest"],
+      title: "Tools & Testing",
+      items: ["Git", "GitHub", "VS Code", "Jest", "Supertest"],
     },
   ];
+
   return (
     <Section
       id="skills"
@@ -569,46 +598,48 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: "Student Performance Prediction System",
-    category: "AI · Analytics",
-    icon: BrainCircuit,
-    description:
-      "An AI-powered web application that predicts students' final examination performance using academic factors and provides interactive analytics and personalized insights.",
-    stack: ["Python", "Flask", "Scikit-learn", "SQLite"],
-    features: [
-      "Machine-learning-based performance prediction",
-      "Interactive analytics and historical tracking",
-      "Personalized study recommendations and CSV export",
-    ],
-    github: "https://github.com/Gowthami-shankar/student-performance-prediction",
-  },
-  {
     title: "Sweet Shop Management System",
     category: "Full-Stack · MERN",
     icon: ShoppingBag,
     description:
-      "A full-stack management platform for handling inventory, sales, authentication, and stock operations.",
+      "A full-stack inventory management system with JWT-based authentication and role-based access control, covering sales processing and stock management.",
     stack: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "Jest"],
     features: [
-      "JWT authentication and role-based access",
-      "RESTful inventory and sales APIs",
-      "Responsive React interface with search and filtering",
+      "JWT authentication with role-based access control",
+      "RESTful APIs for CRUD, sales processing, and stock management",
+      "Responsive React UI with search, filter, and real-time inventory updates",
     ],
-    note: "Built with TDD using Jest and Supertest.",
+    note: "Built with Test-Driven Development using Jest and Supertest.",
     github: "https://github.com/Gowthami-shankar/Sweet-Shop",
   },
+  {
+    title: "Student Performance Prediction System",
+    category: "Machine Learning · Analytics",
+    icon: BrainCircuit,
+    description:
+      "An ML-based system using Linear Regression to predict students' final examination scores from study time, attendance, previous scores, and academic history.",
+    stack: ["Python", "Flask", "Scikit-learn", "Pandas", "NumPy", "SQLite"],
+    features: [
+      "Feature engineering with Pandas and NumPy; 80/20 train split achieving MAE 0.87 and R² 0.82",
+      "Analytics dashboard with Chart.js for prediction trends and score distributions",
+      "Filtering, sorting, CSV export, and SQLite-based prediction history",
+    ],
+    github: "https://github.com/Gowthami-shankar/student-performance-prediction",
+  },
+
   {
     title: "Hospital Parking Management System",
     category: "Full-Stack · PHP",
     icon: ParkingCircle,
     description:
-      "A full-stack application designed to automate and simplify hospital parking management operations.",
+      "A full-stack web application that automates parking management operations, including vehicle entry, search, and reporting.",
     stack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     features: [
       "Vehicle entry and parking record management",
       "Search and report generation",
-      "Parking category and organized data management",
+      "Parking category management with organized, database-driven data handling",
     ],
+
     github: "https://github.com/Gowthami-shankar/Hospital-Parking-Management-System",
   },
 ];
