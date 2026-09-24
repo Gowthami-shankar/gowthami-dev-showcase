@@ -37,13 +37,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer skilled in React, Node.js, Laravel, and Python. Actively seeking Software Developer and Full-Stack Developer opportunities.",
+          "Portfolio of Gowthami — Full-Stack Developer with an MCA from Manipal Institute of Technology, experienced in React, React Native, Node.js, Express.js, and MongoDB.",
       },
       { property: "og:title", content: "Gowthami | Full-Stack Developer" },
       {
         property: "og:description",
         content:
-          "Portfolio of Gowthami — MCA Graduate and Full-Stack Developer. Projects, experience, and skills across React, Node.js, Laravel, and Python. Actively seeking Software Developer and Full-Stack Developer opportunities.",
+          "Portfolio of Gowthami — Full-Stack Developer with an MCA from Manipal Institute of Technology. Experience across web, mobile, frontend, backend, and REST API development.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -262,10 +262,9 @@ function Hero() {
           </div>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            MCA Graduate and Full-Stack Developer passionate about building scalable
-            web applications, solving real-world problems, and creating modern
-            digital experiences. Actively seeking Full-Stack Developer and Software
-            Developer opportunities.
+            I'm a Full-Stack Developer with an MCA from Manipal Institute of
+            Technology, experienced in building web and mobile applications using
+            modern frontend and backend technologies.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -363,14 +362,14 @@ function CodeWindow() {
         <pre className="font-mono text-[11px] leading-relaxed p-4 overflow-x-auto sm:text-[13px] sm:p-5">
 {`const gowthami = {
   role: "Full-Stack Developer",
-  education: "MCA @ Manipal Institute of Technology",
+  education: "MCA — Manipal Institute of Technology",
   stack: {
-    frontend: ["React", "JavaScript", "HTML", "CSS"],
-    backend:  ["Node.js", "Express", "PHP", "Laravel"],
+    frontend: ["React", "React Native", "JavaScript"],
+    backend:  ["Node.js", "Express.js", "PHP", "Laravel"],
     data:     ["MySQL", "MongoDB"],
-    core:     ["Java", "Python", "C++", "REST", "JWT"],
+    mobile:   ["Expo", "REST APIs", "Authentication"],
   },
-  focus: "Scalable web apps + clean UX",
+  focus: "Web + mobile applications",
   status: "Open to opportunities ✨",
 };`}
         </pre>
@@ -428,20 +427,20 @@ function About() {
       <div className="grid gap-8 md:gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            I'm an MCA Graduate from{" "}
+            I'm a Full-Stack Developer with an MCA from{" "}
             <span className="text-foreground font-medium">
               Manipal Institute of Technology, Manipal
             </span>
-            , passionate about designing and developing modern full-stack web
-            applications. I enjoy transforming ideas into practical software
-            solutions using modern web technologies.
+            , experienced in building web and mobile applications using modern
+            frontend and backend technologies. I enjoy transforming ideas into
+            practical, responsive software solutions.
           </p>
           <p>
-            Through my internship and academic projects, I have gained hands-on
-            experience in developing full-stack applications involving REST APIs,
-            authentication, database-driven systems, analytics dashboards, and
-            responsive user interfaces. I enjoy continuously learning new
-            technologies and applying them to build reliable and scalable software.
+            My professional experience and projects include React and React Native
+            interfaces, Node.js and Express.js backends, MongoDB and Mongoose,
+            REST API integration, authentication and OTP-based flows, database-driven
+            systems, and responsive user interfaces. I contribute to multi-tenant
+            SaaS e-commerce and cross-platform mobile application development.
           </p>
         </div>
         <div className="reveal grid grid-cols-2 gap-4">
@@ -465,18 +464,47 @@ function About() {
 
 /* ---------------- Experience ---------------- */
 function Experience() {
-  const tech = ["Laravel", "PHP", "MySQL", "JavaScript", "HTML", "CSS"];
-  const bullets = [
-    "Developed a Construction CRM System using PHP Laravel, MySQL, JavaScript, HTML, and CSS.",
-    "Implemented role-based authentication and project & client management functionality.",
-    "Worked on database operations and improved application performance.",
-    "Participated in requirement analysis, testing, debugging, and deployment.",
-    "Followed MVC architecture and software development best practices.",
+  const experiences = [
+    {
+      role: "Full-Stack Developer",
+      company: "Hungercat Ventures Pvt. Ltd.",
+      period: "August 2026 – Present · Brahmavara, Karnataka",
+      bullets: [
+        "Developing web and mobile applications using React, React Native, Node.js, Express.js, and MongoDB.",
+        "Working on REST APIs, backend integration, authentication, database-driven applications, and responsive user interfaces.",
+        "Contributing to a multi-tenant SaaS e-commerce platform and cross-platform mobile applications.",
+      ],
+      tech: [
+        "React",
+        "React Native",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "Expo",
+        "JavaScript",
+        "REST APIs",
+      ],
+    },
+    {
+      role: "Software Engineer Intern",
+      company: "Udupi Web Solutions",
+      period: "Jan 2026 – May 2026 · Remote",
+      bullets: [
+        "Developed a Construction CRM System using PHP Laravel, MySQL, JavaScript, HTML, and CSS.",
+        "Implemented role-based authentication and project & client management functionality.",
+        "Worked on database operations and improved application performance.",
+        "Participated in requirement analysis, testing, debugging, and deployment.",
+        "Followed MVC architecture and software development best practices.",
+      ],
+      tech: ["Laravel", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+    },
   ];
   return (
     <Section id="experience" eyebrow="Experience" title="Experience">
-      <div className="reveal">
-        <div className="glass-strong rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+      <div className="space-y-6">
+        {experiences.map((experience) => (
+        <div key={experience.company} className="reveal glass-strong rounded-3xl p-6 sm:p-10 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[oklch(0.72_0.18_255/0.25)] blur-3xl" />
           <div className="grid gap-6 sm:grid-cols-[auto_1fr] sm:items-start">
             <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[oklch(0.78_0.17_255)] to-[oklch(0.68_0.20_300)] text-[oklch(0.15_0.03_265)]">
@@ -485,17 +513,17 @@ function Experience() {
             <div className="min-w-0">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="font-display text-xl font-bold sm:text-2xl">
-                  Software Engineer Intern
+                  {experience.role}
                 </h3>
                 <span className="text-xs font-mono text-muted-foreground">
-                  Jan 2026 – May 2026 · Remote
+                  {experience.period}
                 </span>
               </div>
               <div className="mt-1 text-[oklch(0.78_0.15_260)] font-medium">
-                Udupi Web Solutions
+                {experience.company}
               </div>
               <ul className="mt-5 space-y-2.5 text-sm text-muted-foreground">
-                {bullets.map((b) => (
+                {experience.bullets.map((b) => (
                   <li key={b} className="flex gap-3">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[oklch(0.78_0.15_260)]" />
                     <span>{b}</span>
@@ -503,13 +531,14 @@ function Experience() {
                 ))}
               </ul>
               <div className="mt-5 flex flex-wrap gap-2">
-                {tech.map((t) => (
+                {experience.tech.map((t) => (
                   <TechBadge key={t}>{t}</TechBadge>
                 ))}
               </div>
             </div>
           </div>
         </div>
+        ))}
       </div>
     </Section>
   );
@@ -529,13 +558,17 @@ function Skills() {
     {
       icon: Code2,
       title: "Programming Languages",
-      items: ["Java", "JavaScript", "Python", "C++"],
+      items: ["JavaScript", "Java", "Python", "C++", "PHP"],
     },
-    { icon: Layers, title: "Frontend", items: ["HTML", "CSS", "React"] },
+    {
+      icon: Layers,
+      title: "Frontend",
+      items: ["React", "React Native", "HTML", "CSS", "Bootstrap"],
+    },
     {
       icon: Server,
       title: "Backend",
-      items: ["Node.js", "Express.js", "PHP Laravel", "Flask"],
+      items: ["Node.js", "Express.js", "Laravel", "REST APIs", "Flask"],
     },
     { icon: Database, title: "Databases", items: ["MySQL", "MongoDB", "SQLite"] },
     {
@@ -565,8 +598,8 @@ function Skills() {
     },
     {
       icon: Wrench,
-      title: "Tools & Testing",
-      items: ["Git", "GitHub", "VS Code", "Jest", "Supertest"],
+      title: "Tools & Technologies",
+      items: ["Git", "GitHub", "Expo", "Mongoose", "VS Code", "Jest", "Supertest"],
     },
   ];
 
@@ -766,7 +799,7 @@ function Education() {
     {
       degree: "Master of Computer Applications (MCA)",
       school: "Manipal Institute of Technology, Manipal",
-      period: "2024 – 2026",
+      period: "2024 – 2026 · Completed",
       score: "CGPA: 8.26",
       big: true,
     },
